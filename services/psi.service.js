@@ -1,7 +1,7 @@
 const psi = require('psi')
 
 
-let extractWantedPSIData = (data) => {
+let extractWantedPSIData = (response) => {
 	return {
 		evaluation: response.config.params.strategy,
 		runWarnings: response.runWarnings,
