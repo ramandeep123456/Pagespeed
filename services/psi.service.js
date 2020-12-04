@@ -17,14 +17,12 @@ let extractWantedPSIData = (response) => {
 }
 
 let formatExtractedData = (psiData) => {
-	let formattedData = {
-		blocks: []
-	}
+	let blocks: []
 
 	let lastIndex = psiData[psiData.length - 1]
 
 	for(const data of psiData) {
-		formattedData.blocks.push(
+		blocks.push(
 			{
 				type: "header",
 				text: {
@@ -49,11 +47,11 @@ let formatExtractedData = (psiData) => {
 		)
 
 		if(lastIndex != data) {
-			formattedData.blocks.push({ "type": "divider" })
+			blocks.push({ "type": "divider" })
 		}
 	}
 
-	return formattedData
+	return blocks
 }
 
 

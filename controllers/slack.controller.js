@@ -16,7 +16,7 @@ module.exports = {
 			console.log(pageSpeedData)
 			await web.chat.postMessage({
 				channel: '#'+req.body.channel_name,
-				text: `${pageSpeedData}`,
+				blocks: pageSpeedData
 			})
 			res.status(200).send()
 		} catch(error) {
