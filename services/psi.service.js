@@ -53,7 +53,7 @@ let formatExtractedData = (psiData) => {
 		}
 	}
 
-	return JSON.stringify(formattedData)
+	return formattedData
 }
 
 

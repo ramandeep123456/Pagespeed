@@ -8,6 +8,10 @@ const web = new WebClient(process.env.SLACK_TOKEN)
 module.exports = {
 	async needForSpeed(req, res) {
 		try {
+			if(!req.body.text) {
+				throw new Error('No URL given')
+			} 
+
 			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
 			console.log(pageSpeedData)
 			await web.chat.postMessage({
