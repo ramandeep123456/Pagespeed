@@ -11,8 +11,10 @@ module.exports = {
 				channel: '#random',
 				text: `The current time is ${currentTime}`,
 			})
+			res.status(200).send()
 		} catch(error) {
 			console.log(error)
+			res.status(400).send({message: 'bad request'})
 		}
 	}
 }
