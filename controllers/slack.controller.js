@@ -11,11 +11,18 @@ module.exports = {
 			if(!req.body.text) {
 				throw new Error('No URL given')
 			} 
+			let channel = '#'+req.body.channel_name
 
+			res.send(web.chat.postMessage({
+				channel: channel,
+				text: 'Working on the report for you'
+			}))
+			
 			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
 			console.log(pageSpeedData)
 			await web.chat.postMessage({
-				channel: '#'+req.body.channel_name,
+				channel: channel,
+				text: `Here's your report for ${req.body.text}`,
 				blocks: pageSpeedData
 			})
 			res.status(200).send()
