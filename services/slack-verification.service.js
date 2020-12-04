@@ -2,6 +2,11 @@ const crypto = require('crypto')
 const qs = require('qs')
 
 let slackVerification = (req, res, next) => {
+	if(!req.headers['x-slack-signature'] || !req.headers['x-slack-request-timestamp'] || !req.body) {
+		return res.status(400).send('missing things')
+	}
+
+
 	// Make sure requests are coming from slack
     let slackSignature = req.headers['x-slack-signature']
 	let requestBody = qs.stringify(req.body,{ format:'RFC1738' })
