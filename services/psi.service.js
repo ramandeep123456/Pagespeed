@@ -49,7 +49,7 @@ let formatExtractedData = (psiData) => {
 		)
 
 		if(lastIndex != data) {
-			formattedData.push({ "type": "divider" })
+			formattedData.blocks.push({ "type": "divider" })
 		}
 	}
 
