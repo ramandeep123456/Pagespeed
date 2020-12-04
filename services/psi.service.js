@@ -72,6 +72,6 @@ module.exports = {
 			}
 		}
 
-		return formattedData
+		return JSON.stringify(formattedData)
 	}
 }
