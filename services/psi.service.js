@@ -22,6 +22,12 @@ let formatExtractedData = (psiData) => {
 	let lastIndex = psiData[psiData.length - 1]
 
 	for(const data of psiData) {
+		let warnings = ""
+
+		for(const warning of data.runWarnings) {
+			warnings += "* " + warning + "\n"
+		}
+
 		blocks.push(
 			{
 				type: "header",
@@ -46,8 +52,21 @@ let formatExtractedData = (psiData) => {
 			}
 		)
 
+		if(warnings) {
+			blocks.push(
+				{ type: "divider" }, 
+				{
+					type: "section",
+					text: {
+						type: "mrkdwn",
+						text: warnings
+					}
+				}
+			)
+		}
+
 		if(lastIndex != data) {
-			blocks.push({ "type": "divider" })
+			blocks.push({ type: "divider" })
 		}
 	}
 

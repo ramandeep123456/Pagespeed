@@ -13,9 +13,9 @@ module.exports = {
 			} 
 			let channel = '#'+req.body.channel_name
 
-			web.chat.postMessage({
+			await web.chat.postMessage({
 				channel: channel,
-				text: 'Working on the report for you'
+				text: 'Working on that report for you :cold_sweat:'
 			})
 			res.status(200).send()
 
