@@ -12,6 +12,7 @@ let slackVerification = (req, res, next) => {
 	let requestBody = qs.stringify(req.body,{ format:'RFC1738' })
 	let timestamp = req.headers['x-slack-request-timestamp']
 
+	// Get current timestamp
 	const time = Math.floor(new Date().getTime()/1000)
 
 	// The request timestamp is more than five minutes from local time.
@@ -25,10 +26,9 @@ let slackVerification = (req, res, next) => {
     const slackSigningSecret = process.env.SLACK_SIGNING_SECRET
 
 
-    let ourSignature = 'v0=' + 
-    					crypto.createHmac('sha256', slackSigningSecret)
-							  .update(signatureBase, 'utf8')
-							  .digest('hex')
+    let ourSignature = 'v0=' + crypto.createHmac('sha256', slackSigningSecret)
+								     .update(signatureBase, 'utf8')
+								     .digest('hex')
     
     // Compare our signature with Slack's
     // Go next if signatures match
