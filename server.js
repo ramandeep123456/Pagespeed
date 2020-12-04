@@ -3,7 +3,7 @@ const http = require('http')
 const bodyParser = require('body-parser')
 const requireDir = require('require-dir')
 
-const currentTime = new Date().toTimeString()
+
 
 // Initialize app
 const app = express()
