@@ -17,7 +17,7 @@ let extractWantedPSIData = (response) => {
 }
 
 let formatExtractedData = (psiData) => {
-	let blocks: []
+	let blocks = []
 
 	let lastIndex = psiData[psiData.length - 1]
 
