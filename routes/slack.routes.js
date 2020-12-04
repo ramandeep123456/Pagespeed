@@ -6,7 +6,7 @@ const Slack = require('../controllers/slack.controller')
 
 const baseRoute = '/slack'
 
-// router.use(slackVerificationMiddleware)
+router.use(slackVerificationMiddleware)
 
 
 // Pagespeed endpoints

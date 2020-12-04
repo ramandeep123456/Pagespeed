@@ -79,10 +79,10 @@ module.exports = {
 	async getPageSpeed(url) {
 
 		try {
-			let desktopResponse = await psi(url, {strategy: 'desktop', key: 'AIzaSyBB1DJVvt9HAy8GIDiC98ptJPHIVDvxu5s'})
+			let desktopResponse = await psi(url, {strategy: 'desktop'})
 			let desktopData = extractWantedPSIData(desktopResponse)
 
-			mobileResponse = await psi(url, {strategy: 'mobile', key: 'AIzaSyBB1DJVvt9HAy8GIDiC98ptJPHIVDvxu5s'})
+			mobileResponse = await psi(url, {strategy: 'mobile'})
 			let mobileData = extractWantedPSIData(mobileResponse)
 
 			let slackFormattedDAta = formatExtractedData([desktopData, mobileData])

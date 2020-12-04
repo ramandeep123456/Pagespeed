@@ -3,8 +3,6 @@ const psiService = require('../services/psi.service')
 const web = new WebClient(process.env.SLACK_TOKEN)
 
 
-
-
 module.exports = {
 	async needForSpeed(req, res) {
 		try {
