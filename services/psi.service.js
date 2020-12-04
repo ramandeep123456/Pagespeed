@@ -31,7 +31,7 @@ let formatExtractedData = (url, psiData) => {
 
 	for(const data of psiData) {
 		let warnings = ""
-		
+
 		for(const warning of data.runWarnings) {
 			warnings += "* " + warning + "\n"
 		}
@@ -86,10 +86,10 @@ module.exports = {
 	async getPageSpeed(url) {
 
 		try {
-			let desktopResponse = await psi(url, {strategy: 'desktop'})
+			let desktopResponse = await psi(url, {strategy: 'desktop', key: 'AIzaSyB7VWM1KwrmQRJO0VstR3g-U-D4Mf_E2Rw'})
 			let desktopData = extractWantedPSIData(desktopResponse)
 
-			mobileResponse = await psi(url, {strategy: 'mobile'})
+			mobileResponse = await psi(url, {strategy: 'mobile', key: 'AIzaSyB7VWM1KwrmQRJO0VstR3g-U-D4Mf_E2Rw'})
 			let mobileData = extractWantedPSIData(mobileResponse)
 
 			let slackFormattedDAta = formatExtractedData(url, [desktopData, mobileData])
