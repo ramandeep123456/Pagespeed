@@ -21,7 +21,7 @@ let formatExtractedData = (psiData) => {
 		blocks: []
 	}
 
-	let lastIndex = Array.lastIndexOf(psiData)
+	let lastIndex = psiData[psiData.length - 1]
 
 	for(const data of psiData) {
 		formattedData.blocks.push(
