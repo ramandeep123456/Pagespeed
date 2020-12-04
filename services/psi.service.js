@@ -88,12 +88,12 @@ module.exports = {
 
 		try {
 			let desktopResponse = await psi(url, {strategy: 'desktop'})
-			let desktopData = extractWantedPSIData(url, desktopResponse)
+			let desktopData = extractWantedPSIData(desktopResponse)
 
 			mobileResponse = await psi(url, {strategy: 'mobile'})
-			let mobileData = extractWantedPSIData(url, mobileResponse)
+			let mobileData = extractWantedPSIData(mobileResponse)
 
-			let slackFormattedDAta = formatExtractedData([desktopData, mobileData])
+			let slackFormattedDAta = formatExtractedData(url, [desktopData, mobileData])
 
 
 			return slackFormattedDAta
