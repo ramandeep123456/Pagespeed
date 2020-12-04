@@ -4,7 +4,7 @@ const psi = require('psi')
 let extractWantedPSIData = (response) => {
 	return {
 		evaluation: response.config.params.strategy,
-		runWarnings: response.runWarnings,
+		runWarnings: response.data.lighthouseResult.runWarnings,
 		serverResponseTime: response.data.lighthouseResult.audits['server-response-time'].displayValue,
 		firstPaint: response.data.lighthouseResult.audits['first-contentful-paint'].displayValue,
 		firstMeaningfulPaint: response.data.lighthouseResult.audits['first-meaningful-paint'].displayValue,
