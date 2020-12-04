@@ -1,5 +1,5 @@
 const { WebClient } = require('@slack/web-api')
-const psiService = require('../psi.service')
+const psiService = require('../services/psi.service')
 const web = new WebClient(process.env.SLACK_TOKEN)
 
 
