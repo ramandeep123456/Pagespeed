@@ -1,15 +1,12 @@
 'use strict'
 const router = require('express').Router()
+const slackVerificationMiddleware = require('../services/slack-verification.service')
 const Slack = require('../controllers/slack.controller')
 
 
 const baseRoute = '/slack'
 
-router.use((req, res, next) => {
-    // do logging
-
-    next() // make sure we go to the next routes and don't stop here
-})
+router.use(slackVerificationMiddleware)
 
 
 // Pagespeed endpoints
