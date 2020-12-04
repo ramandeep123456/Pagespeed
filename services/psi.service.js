@@ -16,8 +16,16 @@ let extractWantedPSIData = (response) => {
 	}
 }
 
-let formatExtractedData = (psiData) => {
-	let blocks = []
+let formatExtractedData = (url, psiData) => {
+	let blocks = [
+		{
+			type: "section",
+			text: {
+				type: "mrkdwn",
+				text: `PageSpeed Report for: *${url}*`
+			}
+		}
+	]
 
 	let lastIndex = psiData[psiData.length - 1]
 
@@ -80,10 +88,10 @@ module.exports = {
 
 		try {
 			let desktopResponse = await psi(url, {strategy: 'desktop'})
-			let desktopData = extractWantedPSIData(desktopResponse)
+			let desktopData = extractWantedPSIData(url, desktopResponse)
 
 			mobileResponse = await psi(url, {strategy: 'mobile'})
-			let mobileData = extractWantedPSIData(mobileResponse)
+			let mobileData = extractWantedPSIData(url, mobileResponse)
 
 			let slackFormattedDAta = formatExtractedData([desktopData, mobileData])
 
