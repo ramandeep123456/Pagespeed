@@ -54,7 +54,7 @@ module.exports = {
 				{
 					type: "section",
 					text: {
-						type: "mrkdwn"
+						type: "mrkdwn",
 						text: "*Total Score*: " + data.score + "\n" +
 								"*Server Response Time*: " + data.serverResponseTime + "\n" +
 								"*First Paint*: " + data.firstPaint + "\n" +
