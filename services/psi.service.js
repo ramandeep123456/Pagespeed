@@ -53,6 +53,7 @@ let formatExtractedData = (psiData) => {
 		)
 
 		if(warnings) {
+			console.log(warnings)
 			blocks.push(
 				{ type: "divider" }, 
 				{

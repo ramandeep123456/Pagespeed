@@ -20,7 +20,7 @@ module.exports = {
 			res.status(200).send()
 
 			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
-			console.log(pageSpeedData)
+
 			await web.chat.postMessage({
 				channel: channel,
 				text: `Here's your report for ${req.body.text}`,
