@@ -27,6 +27,10 @@ module.exports = {
 			res.status(200).send()
 		} catch(error) {
 			console.log(error)
+			await web.chat.postMessage({
+				channel: channel,
+				text: 'Something went wrong :scream:'
+			})
 			res.status(400).send({message: 'bad request'})
 		}
 	},
