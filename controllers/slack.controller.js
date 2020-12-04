@@ -8,7 +8,7 @@ const web = new WebClient(process.env.SLACK_TOKEN)
 module.exports = {
 	async needForSpeed(req, res) {
 		try {
-			let pageSpeedData = await getPageSpeed(req.body.text)
+			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
 			await web.chat.postMessage({
 				channel: '#'+req.body.channel_name,
 				text: `${pageSpeedData}`,
