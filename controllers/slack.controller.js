@@ -9,6 +9,7 @@ module.exports = {
 	async needForSpeed(req, res) {
 		try {
 			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
+			console.log(pageSpeedData)
 			await web.chat.postMessage({
 				channel: '#'+req.body.channel_name,
 				text: `${pageSpeedData}`,
