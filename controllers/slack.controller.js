@@ -13,11 +13,12 @@ module.exports = {
 			} 
 			let channel = '#'+req.body.channel_name
 
-			res.send(web.chat.postMessage({
+			web.chat.postMessage({
 				channel: channel,
 				text: 'Working on the report for you'
-			}))
-			
+			})
+			res.status(200).send()
+
 			let pageSpeedData = await psiService.getPageSpeed(req.body.text)
 			console.log(pageSpeedData)
 			await web.chat.postMessage({
