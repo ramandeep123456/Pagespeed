@@ -62,10 +62,10 @@ module.exports = {
 
 		try {
 			let desktopResponse = await psi(url, {strategy: 'desktop', key: 'AIzaSyBB1DJVvt9HAy8GIDiC98ptJPHIVDvxu5s'})
-			let desktopData = extractWantedPSIData(response)
+			let desktopData = extractWantedPSIData(desktopResponse)
 
 			mobileResponse = await psi(url, {strategy: 'mobile', key: 'AIzaSyBB1DJVvt9HAy8GIDiC98ptJPHIVDvxu5s'})
-			let mobileData = extractWantedPSIData(response)
+			let mobileData = extractWantedPSIData(mobileResponse)
 
 			let slackFormattedDAta = formatExtractedData([desktopData, mobileData])
 
