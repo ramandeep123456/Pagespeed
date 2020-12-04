@@ -4,17 +4,17 @@ const web = new WebClient(process.env.SLACK_TOKEN)
 
 module.exports = {
 	async needForSpeed(req, res) {
-
-		try {
-			const currentTime = new Date().toTimeString()
-			await web.chat.postMessage({
-				channel: '#random',
-				text: `The current time is ${currentTime}`,
-			})
-			res.status(200).send()
-		} catch(error) {
-			console.log(error)
-			res.status(400).send({message: 'bad request'})
-		}
+		console.log(req.body)
+		// try {
+		// 	const currentTime = new Date().toTimeString()
+		// 	await web.chat.postMessage({
+		// 		channel: '#random',
+		// 		text: `The current time is ${currentTime}`,
+		// 	})
+		// 	res.status(200).send()
+		// } catch(error) {
+		// 	console.log(error)
+		// 	res.status(400).send({message: 'bad request'})
+		// }
 	}
 }

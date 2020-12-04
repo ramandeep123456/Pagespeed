@@ -13,6 +13,7 @@ router.use((req, res, next) => {
 
 
 // Pagespeed endpoints
+router.get(baseRoute + '/needforspeed', Slack.needForSpeed)
 router.post(baseRoute + '/needforspeed', Slack.needForSpeed)
 
 
