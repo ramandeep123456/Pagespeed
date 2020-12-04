@@ -23,7 +23,7 @@ let formatExtractedData = (psiData) => {
 
 	for(const data of psiData) {
 		let warnings = ""
-
+		console.log(data.runWarnings)
 		for(const warning of data.runWarnings) {
 			warnings += "* " + warning + "\n"
 		}
