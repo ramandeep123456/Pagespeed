@@ -3,7 +3,7 @@ const qs = require('qs')
 
 let slackVerification = (req, res, next) => {
 	if(!req.headers['x-slack-signature'] || !req.headers['x-slack-request-timestamp'] || !req.body) {
-		return res.status(400).send('missing things')
+		return res.status(400).send('Missing slack signature or timestamp in headers')
 	}
 
 
